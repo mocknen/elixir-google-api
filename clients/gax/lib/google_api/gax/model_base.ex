@@ -97,17 +97,17 @@ defmodule GoogleApi.Gax.ModelBase do
   def decode(value, :map, module) when not is_nil(value) do
     value
     |> Enum.map(fn {k, v} ->
-      {k, Poison.Decode.decode(v, as: struct(module))}
+      {k, Poison.Decoder.decode(v, as: struct(module))}
     end)
     |> Enum.into(%{})
   end
 
   def decode(value, :list, module) do
-    Poison.Decode.decode(value, as: [struct(module)])
+    Poison.Decoder.decode(value, as: [struct(module)])
   end
 
   def decode(value, _, module) do
-    Poison.Decode.decode(value, as: struct(module))
+    Poison.Decoder.decode(value, as: struct(module))
   end
 
   @doc """
