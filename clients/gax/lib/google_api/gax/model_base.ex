@@ -83,7 +83,7 @@ defmodule GoogleApi.Gax.ModelBase do
   end
 
   def decode(value, _, DateTime) do
-    parse_date_time(value)
+    value
   end
 
   def decode(value, :list, Date) do
