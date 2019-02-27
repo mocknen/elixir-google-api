@@ -23,7 +23,10 @@ defmodule GoogleApi.Storage.V1.Mixfile do
 
   defp deps() do
     [
-      {:google_gax, "~> 0.1.0"},
+      {:google_gax,
+       github: "mocknen/elixir-google-api",
+       ref: "fix/gax_parse_date",
+       sparse: "clients/gax"},
       {:ex_doc, "~> 0.16", only: :dev},
       {:goth, "~> 0.4.0", only: [:dev, :test]}
     ]
